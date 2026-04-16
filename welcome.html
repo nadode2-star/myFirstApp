@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>환영합니다 | My App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" style="max-width: 600px;">
+        <header>
+            <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+            <h1 id="welcomeMessage">환영합니다!</h1>
+            <p class="subtitle">로그인에 성공하셨습니다. 서비스를 자유롭게 이용해 보세요.</p>
+        </header>
+
+        <div style="text-align: center; margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+            <p id="userInfo" style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--glass-border); color: #e2e8f0;"></p>
+            <button onclick="handleLogout()" class="btn" style="background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.2); color: #f87171;">로그아웃</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // 현재 로그인된 유저 정보 표시
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                alert('로그인이 필요합니다!');
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            document.getElementById('welcomeMessage').innerText = `${currentUser.username}님, 환영합니다!`;
+            document.getElementById('userInfo').innerHTML = `
+                <div style="text-align: left;">
+                    <strong>이메일:</strong> ${currentUser.email}<br>
+                    <strong>가입일:</strong> ${new Date(currentUser.signupDate).toLocaleDateString()}
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
