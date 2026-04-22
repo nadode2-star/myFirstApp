@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인 | My App</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="login-bg">
     <div class="container">
         <header>
             <h1>반가워요!</h1>
-            <p class="subtitle">계정에 로그인하여 계속하세요.</p>
+
         </header>
 
         <form action="#" method="POST" id="loginForm" onsubmit="handleLogin(event)">
@@ -37,9 +39,11 @@
         </form>
 
         <footer>
-            계정이 없으신가요? <span onclick="goToSignupPage()" style="color: var(--primary-color); cursor: pointer; font-weight: 600; text-decoration: underline;">회원가입</span>
+            계정이 없으신가요? <span onclick="goToSignupPage()"
+                style="color: var(--primary-color); cursor: pointer; font-weight: 600; text-decoration: underline;">회원가입</span>
         </footer>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

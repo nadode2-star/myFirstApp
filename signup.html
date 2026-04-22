@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입 | My App</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="signup-bg">
     <div class="container">
         <header>
             <h1>계정 생성</h1>
@@ -17,7 +19,14 @@
             <div class="form-group">
                 <label for="username">사용자 이름</label>
                 <div class="input-wrapper">
-                    <input type="text" id="username" name="username" placeholder="예: 김도연" required>
+                    <input type="text" id="username" name="username" placeholder="예: 홍길동" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate">생년월일</label>
+                <div class="input-wrapper">
+                    <input type="date" id="birthdate" name="birthdate" required>
                 </div>
             </div>
 
@@ -38,7 +47,8 @@
             <div class="form-group">
                 <label for="signupPasswordConfirm">비밀번호 확인</label>
                 <div class="input-wrapper">
-                    <input type="password" id="signupPasswordConfirm" name="signupPasswordConfirm" placeholder="••••••••" required>
+                    <input type="password" id="signupPasswordConfirm" name="signupPasswordConfirm"
+                        placeholder="••••••••" required>
                 </div>
             </div>
 
@@ -51,9 +61,11 @@
         </form>
 
         <footer>
-            이미 계정이 있으신가요? <span onclick="goToLoginPage()" style="color: var(--primary-color); cursor: pointer; font-weight: 600; text-decoration: underline;">로그인</span>
+            이미 계정이 있으신가요? <span onclick="goToLoginPage()"
+                style="color: var(--primary-color); cursor: pointer; font-weight: 600; text-decoration: underline;">로그인</span>
         </footer>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
