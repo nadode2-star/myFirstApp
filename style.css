@@ -40,7 +40,8 @@ body.login-bg {
     background-size: cover;
 }
 
-body.welcome-bg {
+body.welcome-bg,
+body.main-bg {
     background: url('welcome-bg.png') no-repeat center center fixed;
     background-size: cover;
 }
@@ -50,7 +51,9 @@ body.signup-bg::after,
 body.login-bg::before,
 body.login-bg::after,
 body.welcome-bg::before,
-body.welcome-bg::after {
+body.welcome-bg::after,
+body.main-bg::before,
+body.main-bg::after {
     display: none;
     /* Hide default blur circles for the space theme */
 }
@@ -156,6 +159,8 @@ body::after {
 }
 
 .container {
+    position: relative;
+    z-index: 10;
     background: var(--glass-bg);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -335,7 +340,7 @@ input::placeholder {
     background: linear-gradient(-45deg, #ffffff, rgba(95, 145, 255, 0.8), rgba(0, 0, 255, 0));
     filter: drop-shadow(0 0 10px #ffffff) drop-shadow(0 0 15px #5f91ff);
     animation: tail 3s ease-in-out infinite, shooting 3s ease-in-out infinite;
-    z-index: 9999;
+    z-index: 0;
 }
 
 @keyframes tail {

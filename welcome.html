@@ -50,6 +50,32 @@
                 img.src = bgPath;
                 img.onload = () => {
                     document.body.style.backgroundImage = `url('${bgPath}')`;
+                    document.body.style.backgroundSize = '100% auto';
+                    document.body.style.backgroundAttachment = 'scroll';
+                    document.body.style.backgroundPosition = 'top center';
+                    
+                    // 이미지 비율에 맞춰 전체를 볼 수 있도록 body 높이 설정
+                    const aspectRatio = img.height / img.width;
+                    const requiredHeight = window.innerWidth * aspectRatio;
+                    
+                    // 화면 높이보다 이미지가 긴 경우 스크롤 가능하게 설정
+                    const updateHeight = () => {
+                        const currentRequiredHeight = window.innerWidth * aspectRatio;
+                        if (currentRequiredHeight > window.innerHeight) {
+                            document.body.style.minHeight = `${currentRequiredHeight}px`;
+                            document.body.style.alignItems = 'flex-start';
+                            document.body.style.paddingTop = '10vh';
+                            document.body.style.paddingBottom = '10vh';
+                        } else {
+                            document.body.style.minHeight = '100vh';
+                            document.body.style.alignItems = 'center';
+                            document.body.style.paddingTop = '0';
+                            document.body.style.paddingBottom = '0';
+                        }
+                    };
+                    
+                    updateHeight();
+                    window.addEventListener('resize', updateHeight);
                 };
             }
 

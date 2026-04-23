@@ -15,6 +15,10 @@ function goToWelcomePage() {
     window.location.href = 'welcome.html';
 }
 
+function goToIndexPage() {
+    window.location.href = 'index.html';
+}
+
 /**
  * 로그인 처리 함수
  */
@@ -54,7 +58,7 @@ function handleLogin(event) {
 function handleLogout() {
     localStorage.removeItem('currentUser');
     alert('로그아웃 되었습니다.');
-    goToLoginPage();
+    goToIndexPage();
 }
 
 /**
@@ -71,7 +75,6 @@ function handleSignup(event) {
     const email = document.getElementById('signupEmail').value;
     const password = document.getElementById('signupPassword').value;
     const passwordConfirm = document.getElementById('signupPasswordConfirm').value;
-    const termsAgreed = document.getElementById('terms').checked;
 
     // 비밀번호 확인 검사
     if (password !== passwordConfirm) {
@@ -230,7 +233,7 @@ function initBackgroundStars() {
 
 // 페이지 로드 시 우주 테마 배경이 있다면 별 초기화
 document.addEventListener('DOMContentLoaded', () => {
-    const spaceThemes = ['signup-bg', 'login-bg', 'welcome-bg'];
+    const spaceThemes = ['signup-bg', 'login-bg', 'welcome-bg', 'main-bg'];
     if (spaceThemes.some(cls => document.body.classList.contains(cls))) {
         initBackgroundStars();
     }

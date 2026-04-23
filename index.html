@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인 페이지 | My App</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+
+<body class="main-bg">
     <div class="container">
         <header>
             <h1>환영합니다!</h1>
-            <p class="subtitle">새로운 서비스를 만나보세요.</p>
+            <p class="subtitle">✨ 당신의 별자리를 확인하세요!</p>
         </header>
 
         <div style="display: flex; flex-direction: column; gap: 1rem;">
             <button class="btn" onclick="goToLoginPage()" style="display: block; text-align: center;">로그인하러 가기</button>
-            <button class="btn" onclick="goToSignupPage()" style="display: block; text-align: center; background: rgba(255, 255, 255, 0.1); border: 1px solid var(--glass-border);">회원가입하러 가기</button>
+            <button class="btn" onclick="goToSignupPage()"
+                style="display: block; text-align: center; background: rgba(255, 255, 255, 0.1); border: 1px solid var(--glass-border);">회원가입하러
+                가기</button>
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 메인 페이지에서는 별똥별이 계속 내리도록 설정
+            triggerShootingStars();
+            setInterval(triggerShootingStars, 10000); // 10초마다 반복 실행
+        });
+    </script>
 </body>
+
 </html>
